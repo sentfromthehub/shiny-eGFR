@@ -10,7 +10,7 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       numericInput("creatinine", 
-                   "Serum Creatinine: (µmol/L)", 
+                   "Serum Creatinine: (mg/dL)", 
                    value = 1, 
                    min = 0.5, 
                    max = 15),
@@ -34,7 +34,7 @@ ui <- fluidPage(
 # Define server logic
 server <- function(input, output) {
   output$eGFR <- renderText({
-    # Determine the constants based on sex
+    # Determine the constants based on sex. 
     if (input$sex == "Female") {
       kappa <- 0.7
       alpha <- -0.241
@@ -50,7 +50,7 @@ server <- function(input, output) {
     max_value <- max((input$creatinine/kappa), 1)
     
     # Calculate eGFR
-    eGFR <- 142 * min_value^alpha * max_value^-1.209 * 0.993^input$age * sex_constant
+    eGFR <- 142 * min_value^alpha * max_value^-1.200 * 0.9938^input$age * sex_constant
     
     # Return the eGFR as a string
     paste("eGFR:", round(eGFR, 2))

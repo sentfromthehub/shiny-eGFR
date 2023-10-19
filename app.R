@@ -10,7 +10,7 @@ ui <- fluidPage(
   sidebarLayout(
     sidebarPanel(
       numericInput("creatinine", 
-                   "Creatinine Level: (µmol/L)", 
+                   "Serum Creatinine: (µmol/L)", 
                    value = 1, 
                    min = 0.5, 
                    max = 15),
@@ -46,11 +46,11 @@ server <- function(input, output) {
     }
     
     # Calculate the minimum and maximum of Scr/kappa or 1.0
-    min_value <- min(input$creatinine/kappa, 1)
-    max_value <- max(input$creatinine/kappa, 1)
+    min_value <- min((input$creatinine/kappa), 1)
+    max_value <- max((input$creatinine/kappa), 1)
     
     # Calculate eGFR
-    eGFR <- 142 * min_value^alpha * max_value^-1.200 * 0.9938^input$age * sex_constant
+    eGFR <- 142 * min_value^alpha * max_value^-1.209 * 0.993^input$age * sex_constant
     
     # Return the eGFR as a string
     paste("eGFR:", round(eGFR, 2))

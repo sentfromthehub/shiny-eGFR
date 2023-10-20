@@ -9,7 +9,7 @@ eGFR = 142 \times \min\left(\frac{Scr}{K}, 1\right)^\alpha \times \max\left(\fra
 $$
 
 Where:
-* **eGFR** (estimated Glomerular Filtration Rate) is the calculated result, representing the rate of blood flow through the kidneys. It's expressed in mL/min/1.73 m<sup>2</sup> and is represented as ```eGFR``` in the code 
+* **eGFR** (estimated Glomerular Filtration Rate) is the calculated result, representing the rate of blood flow through the kidneys. It's expressed in mL/min/1.73 m<sup>2</sup> and is represented as ```eGFR``` in the code.
 * **Scr** (Serum Creatinine) is a waste product from muscle metabolism, measured in mg/dL. In the code, it's represented as ```creatinine```.
 * **K** is a constant which varies based on the patient's sex: 0.7 for females, and 0.9 for males. In the code, it's represented as ```kappa```.
 * **α** is another constant that varies based on sex: -0.241 for females, and -0.302 for males. In the code, it's represented as ```alpha```. 

@@ -26,14 +26,14 @@ ui <- fluidPage(
     
     # Show the eGFR calculation
     mainPanel(
-      textOutput("eGFR")
+      uiOutput("eGFR_ui")
     )
   )
 )
 
 # Define server logic
 server <- function(input, output) {
-  output$eGFR <- renderText({
+  output$eGFR_value <- renderText({
     # Determine the constants based on sex. 
     if (input$sex == "Female") {
       kappa <- 0.7
@@ -52,10 +52,30 @@ server <- function(input, output) {
     # Calculate eGFR
     eGFR <- 142 * min_value^alpha * max_value^-1.200 * 0.9938^input$age * sex_constant
     
-    # Return the eGFR as a string
-    paste("eGFR:", round(eGFR, 2))
+    eGFR
+})
+    
+  output$eGFR_ui <- renderUI({
+    # Determine color based on eGFR value
+    eGFR_value <- output$eGFR_value()
+    if (eGFR_value > 90) {
+      color <- "green"
+    } else if (eGFR_value >= 60) {
+      color <- "yellow"
+    } else if (eGFR_value >= 45) {
+      color <- "orange"
+    } else if (eGFR_value >= 30) {
+      color <- "red"
+    } else if (eGFR_value >= 15) {
+      color <- "darkred"
+    } else {
+      color <- "black"
+    }
+    # Return the eGFR as color-coded HTML
+    HTML(paste("<h2 style='color:", color, "'>eGFR: ", round(eGFR_value, 2), "</h2>"))
   })
 }
+
 
 # Run the application 
 shinyApp(ui = ui, server = server)

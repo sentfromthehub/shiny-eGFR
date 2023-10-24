@@ -19,6 +19,9 @@ Where:
 ## Progress Screenshots
 
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/2c54f491-bcd8-475b-bc00-dbffd28843dd)
+![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/67aa2ae2-0642-4217-ae55-390fb7c24b65)
+
+
 
 ## References
 

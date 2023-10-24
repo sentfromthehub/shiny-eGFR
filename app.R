@@ -33,7 +33,7 @@ ui <- fluidPage(
 
 # Define server logic
 server <- function(input, output) {
-  output$eGFR_value <- renderText({
+  eGFR <- reactive({
     # Determine the constants based on sex. 
     if (input$sex == "Female") {
       kappa <- 0.7
@@ -54,10 +54,14 @@ server <- function(input, output) {
     
     eGFR
 })
-    
+  
+  output$eGFR_value <- renderText({
+    eGFR()
+  })
+  
   output$eGFR_ui <- renderUI({
     # Determine color based on eGFR value
-    eGFR_value <- output$eGFR_value()
+    eGFR_value <- eGFR()
     if (eGFR_value > 90) {
       color <- "green"
     } else if (eGFR_value >= 60) {

@@ -1,33 +1,32 @@
 library(shiny)
+library(shinydashboard)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- dashboardPage(
   
   # Application title
-  titlePanel("eGFR Calculator"),
+  dashboardHeader(title = "eGFR Calculator"),
   
   # Sidebar with inputs for eGFR calculation
-  sidebarLayout(
-    sidebarPanel(
-      numericInput("creatinine", 
-                   "Serum Creatinine: (mg/dL)", 
-                   value = 1, 
-                   min = 0.5, 
-                   max = 15),
-      numericInput("age", 
-                   "Age:", 
-                   value = 30, 
-                   min = 18, 
-                   max = 100),
-      selectInput("sex", 
-                  "Sex:", 
-                  choices = c("Female", "Male")),
-    ),
-    
-    # Show the eGFR calculation
-    mainPanel(
-      uiOutput("eGFR_ui")
-    )
+  dashboardSidebar(
+    numericInput("creatinine", 
+                 "Serum Creatinine: (mg/dL)", 
+                 value = 1, 
+                 min = 0.5, 
+                 max = 15),
+    numericInput("age", 
+                 "Age:", 
+                 value = 30, 
+                 min = 18, 
+                 max = 100),
+    selectInput("sex", 
+                "Sex:", 
+                choices = c("Female", "Male"))
+  ),
+  
+  # Show the eGFR calculation
+  dashboardBody(
+    valueBoxOutput("eGFR")
   )
 )
 

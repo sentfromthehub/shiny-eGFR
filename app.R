@@ -54,25 +54,28 @@ server <- function(input, output) {
     eGFR
 })
   
-  output$eGFR_value <- renderText({
-    eGFR()
-  })
-  
-  output$eGFR_ui <- renderUI({
-    # Determine color based on eGFR value
+  output$eGFR <- renderValueBox({
     eGFR_value <- eGFR()
+    
+    # Determine color and subtitle based on eGFR value
     if (eGFR_value > 90) {
       color <- "green"
+      subtitle <- "Normal kidney function"
     } else if (eGFR_value >= 60) {
       color <- "yellow"
+      subtitle <- "Mildly decreased kidney function"
     } else if (eGFR_value >= 45) {
       color <- "orange"
+      subtitle <- "Mildly to moderately decreased kidney function"
     } else if (eGFR_value >= 30) {
       color <- "red"
+      subtitle <- "Moderately to severely decreased kidney function"
     } else if (eGFR_value >= 15) {
       color <- "darkred"
+      subtitle <- "Severely decreased kidney function"
     } else {
       color <- "black"
+      subtitle <- "Kidney failure"
     }
     # Return the eGFR as color-coded HTML
     HTML(paste("<h2 style='color:", color, "'>eGFR: ", round(eGFR_value, 2), "</h2>"))

@@ -33,15 +33,12 @@ Chronic Kidney Disease (CKD) can be classified into several categories based on 
 5. ${\color{darkred} 15 < eGFR \leq 30}$: Severely decreased
 6. ${\color{black} eGFR < 15}$: Kidney failure
 
-
 ## Progress Screenshots
 
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/2c54f491-bcd8-475b-bc00-dbffd28843dd)
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/67aa2ae2-0642-4217-ae55-390fb7c24b65)
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/f1f65222-8610-449e-8701-33aa402ca3fd)
-
-
-
+![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/2c3acc9f-f9e5-4e49-98c9-a48a50ba006a)
 
 ## References
 

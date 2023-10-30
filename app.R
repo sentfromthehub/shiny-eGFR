@@ -77,8 +77,12 @@ server <- function(input, output) {
       color <- "black"
       subtitle <- "Kidney failure"
     }
-    # Return the eGFR as color-coded HTML
-    HTML(paste("<h2 style='color:", color, "'>eGFR: ", round(eGFR_value, 2), "</h2>"))
+    # Return the eGFR as reactive color-coded value
+    valueBox(
+      value = round(eGFR_value, 2),
+      subtitle = subtitle,
+      color = color
+    )
   })
 }
 

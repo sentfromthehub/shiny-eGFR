@@ -79,9 +79,11 @@ server <- function(input, output) {
     }
     # Return the eGFR as reactive color-coded value
     valueBox(
-      value = round(eGFR_value, 2),
+      HTML(paste("<strong>", round(eGFR_value, 0), "</strong>", 
+                  "<span style='font-size:80%; opacity: 0.7;'> mL/min/1.73m<sup>2</sup></span>")),
       subtitle = subtitle,
-      color = color
+      color = color,
+      icon = icon("heartbeat")
     )
   })
 }

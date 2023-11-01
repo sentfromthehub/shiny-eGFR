@@ -1,0 +1,23 @@
+/* Import Ubuntu font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Ubuntu&display=swap');
+
+/* Set font family for body */
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+ 
+/* Style logo background color */
+.skin-blue .main-header .logo {
+  background-color: #E47D00;
+}
+
+/* Style navbar background color */
+.skin-blue .main-header .navbar {
+  background-color: #E89300;
+}
+ 
+/* Style sidebar background color */
+.skin-blue .sidebar {
+  background-color: #BD5A00;
+  height: 100vh;
+}

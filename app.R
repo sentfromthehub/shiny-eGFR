@@ -1,7 +1,7 @@
 library(shiny)
 library(shinydashboard)
 
-# Define UI for application that draws a histogram
+# Define UI
 ui <- dashboardPage(
   
   # Application title
@@ -26,6 +26,7 @@ ui <- dashboardPage(
   
   # Show the eGFR calculation
   dashboardBody(
+    tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),
     valueBoxOutput("eGFR")
   )
 )

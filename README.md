@@ -39,6 +39,7 @@ Chronic Kidney Disease (CKD) can be classified into several categories based on 
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/67aa2ae2-0642-4217-ae55-390fb7c24b65)
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/f1f65222-8610-449e-8701-33aa402ca3fd)
 ![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/2c3acc9f-f9e5-4e49-98c9-a48a50ba006a)
+![image](https://github.com/sentfromthehub/shiny-eGFR/assets/121725874/a5c9b21f-0fe9-4e0f-8933-ba7c2b40b667)
 
 ## References
 

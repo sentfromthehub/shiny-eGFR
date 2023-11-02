@@ -34,6 +34,11 @@ ui <- dashboardPage(
 # Define server logic
 server <- function(input, output) {
   eGFR <- reactive({
+    # Validate user inputs
+    validate(
+      need(input$age >= 18 && input$age <= 100, "Please enter an age between 18 and 100."),
+      need(input$creatinine > 0, "Please enter serum creatinine in mg/dL.")
+    )
     # Determine the constants based on sex. 
     if (input$sex == "Female") {
       kappa <- 0.7
@@ -72,7 +77,7 @@ server <- function(input, output) {
       color <- "red"
       subtitle <- "Moderately to severely decreased kidney function"
     } else if (eGFR_value >= 15) {
-      color <- "darkred"
+      color <- "maroon"
       subtitle <- "Severely decreased kidney function"
     } else {
       color <- "black"

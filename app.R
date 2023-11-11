@@ -10,10 +10,13 @@ ui <- dashboardPage(
   # Sidebar with inputs for eGFR calculation
   dashboardSidebar(
     numericInput("creatinine", 
-                 "Serum Creatinine: (mg/dL)", 
+                 "Serum Creatinine:", 
                  value = 1, 
                  min = 0.5, 
                  max = 15),
+    radioButtons("units", 
+                 "Units:", 
+                 choices = c("mg/dL", "mmol/L")),
     numericInput("age", 
                  "Age:", 
                  value = 30, 
@@ -23,7 +26,6 @@ ui <- dashboardPage(
                 "Sex:", 
                 choices = c("Female", "Male"))
   ),
-  
   # Show the eGFR calculation
   dashboardBody(
     tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "styles.css")),

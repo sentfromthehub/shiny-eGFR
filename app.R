@@ -16,7 +16,7 @@ ui <- dashboardPage(
                  max = 15),
     radioButtons("units", 
                  "Units:", 
-                 choices = c("mg/dL", "mmol/L")),
+                 choices = c("mg/dL", "µmol/L")),
     numericInput("age", 
                  "Age:", 
                  value = 30, 
@@ -41,6 +41,14 @@ server <- function(input, output) {
       need(input$age >= 18 && input$age <= 100, "Please enter an age between 18 and 100."),
       need(input$creatinine > 0, "Please enter serum creatinine in mg/dL.")
     )
+    
+    # Convert creatinine from µmol/L to mg/dL if necessary
+    if (input$units == "µmol/L") {
+      creatinine <- input$creatinine * 0.0113
+    } else {
+      creatinine <- input$creatinine
+    }
+    
     # Determine the constants based on sex. 
     if (input$sex == "Female") {
       kappa <- 0.7
@@ -53,8 +61,8 @@ server <- function(input, output) {
     }
     
     # Calculate the minimum and maximum of Scr/kappa or 1.0
-    min_value <- min((input$creatinine/kappa), 1)
-    max_value <- max((input$creatinine/kappa), 1)
+    min_value <- min((creatinine/kappa), 1)
+    max_value <- max((creatinine/kappa), 1)
     
     # Calculate eGFR
     eGFR <- 142 * min_value^alpha * max_value^-1.200 * 0.9938^input$age * sex_constant
